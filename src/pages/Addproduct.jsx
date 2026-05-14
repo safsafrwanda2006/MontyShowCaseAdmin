@@ -12,6 +12,7 @@ function AddProduct({ setCurrentPage }) {
     classification: "",
     description: "",
   });
+  
 
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState("");

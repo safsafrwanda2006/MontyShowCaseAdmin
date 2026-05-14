@@ -15,6 +15,7 @@ function admins({ setCurrentPage }) {
     admin_role: "",
   });
 
+  
   useEffect(() => {
     const token = localStorage.getItem("token");
 
@@ -92,11 +93,13 @@ function admins({ setCurrentPage }) {
               )}
             </div>
             <div className="email">{admin.email}</div>
-            {role === "full" &&(
+            {role === "full" ?(
                 <button onClick={() => deleteAdmin(admin.admin_id)}>
                   حذف المشرف
                 </button>
-              )}
+              ):
+              <button disabled >حذف المشرف</button>
+            }
           </li>
         ))}
       </ul>
