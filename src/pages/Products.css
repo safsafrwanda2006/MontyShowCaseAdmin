@@ -1,0 +1,230 @@
+.products-container{
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0px;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  color: black;
+  background-color: #fffafa;
+}
+.no-products {
+  padding: 40px;
+  color: #555;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: #2563eb;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: all 0.2s ease;
+  padding: 0;
+  font-size: 16px;
+}
+
+.link-btn:hover {
+  color: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.link-btn:active {
+  transform: scale(0.98);
+}
+.products{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+    margin-top: 100px;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-bottom: 80px;
+}
+.product-card{
+ width: 90%;
+ background-color: white;
+ box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+ display: flex;
+ gap: 2em;
+ padding: 10px;
+ border-radius: 8px;
+ transition: all ease 0.4s;
+}
+.product-card:hover{
+    transform: scale(1.001);
+}
+.product-image{
+    width: 200px;
+    border-radius: 8px;
+}
+.name-desc-block{
+    width: 50%;
+    padding: 10px 0px;
+}
+.price-type-block{
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 15px 0px;
+}
+.actions-block{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 15px 0px;
+}
+.actions-block button{
+    width: 150px;
+    padding: 5px;
+    font-size: 20px;
+    border-radius: 8px;
+    border: none;
+    color: white;
+}
+.actions-block .edit{
+  background-color: #FF6B35;
+}
+.actions-block .edit:hover{
+    background-color: #f36532;
+    transform: scale(1.01);
+}
+.actions-block .delete{
+  background-color: rgb(252, 64, 64);
+}
+.actions-block .delete:hover{
+    background-color: red;
+    transform: scale(1.01);
+}
+.to-add-product-button{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+.to-add-product-button button{
+    background-color: #FF6B35;
+    color: white;
+    width: 200px;
+    position: fixed;
+    bottom: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: none;
+    gap: 1em;
+}
+
+/* Loading process */
+.loading{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2em;
+}
+.loadingcard{
+    width: 90%;
+    background-color: #eee;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 1px 5px 10px rgba(0,0,0,0.2);
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+.loadingcard::before{
+    content:  "";
+    position: absolute;
+    top: 0;
+    left: -300px;
+    height: 100%;
+    width: 300px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.6),
+        transparent
+    );
+    animation: shimmer 1.2s infinite;
+}
+@keyframes shimmer {
+    100%{
+        transform: translateX(300%);
+    }
+}
+.loadingcard img{
+    padding: 50px;
+    background: linear-gradient(90deg,gray,rgb(180, 180, 180),rgb(201, 200, 200));
+    border-radius: 10px;
+}
+/* Edite Mode Updates */
+.editImage{
+    position: relative;
+}
+.upload-image{
+    background-color: #FF6B35;
+    border: none;
+    padding: 5px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+}
+.upload-image:hover{
+    background-color: #f36532;
+}
+.name-desc-block-edit{
+    font-size: 34px;
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    padding: 10px 0px;
+}
+.name-desc-block-edit input,textarea{
+    font-size: 20px;
+    border-radius: 3px;
+    background-color: #fff;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.281);
+    border: 1px solid gray;
+    padding: 5px;
+}
+.price-type-block-edit{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 10px 0px;
+}
+.price-type-block-edit input,select{
+    font-size: 18px;
+    border-radius: 3px;
+    border: 1px solid gray;
+    padding: 8px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.233);
+}
+
+/* Phone size */
+@media (max-width:800px) {
+    
+    .product-card{
+        flex-direction: column;
+        gap: 1em;
+        align-content: flex-end;
+    }
+    .name-desc-block{
+        width: 95%;
+    }
+    .price-type-block{
+        flex-direction: row;
+    }
+    .actions-block{
+        flex-direction: row;
+    }
+}
