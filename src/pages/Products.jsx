@@ -9,6 +9,7 @@ function Products({ setCurrentPage }) {
   const [loading, setLoading] = useState(true);
   const [editId, setEditId] = useState(null);
 
+  
   const fetchProduts = async () => {
     try {
       const result = await axios.get(`${backendURL}/products`);
