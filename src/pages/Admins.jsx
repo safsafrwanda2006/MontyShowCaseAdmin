@@ -98,7 +98,9 @@ function admins({ setCurrentPage }) {
                   حذف المشرف
                 </button>
               ):
-              <button disabled >حذف المشرف</button>
+              <button 
+              className="disabled"
+              disabled >حذف المشرف</button>
             }
           </li>
         ))}
