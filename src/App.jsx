@@ -4,7 +4,7 @@ import { jwtDecode } from "jwt-decode";
 import "./App.css";
 import Admins from "./pages/Admins.jsx";
 import Products from "./pages/Products.jsx";
-import AddProduct from "./pages/AddProduct.jsx";
+import AddProduct from './pages/Addproduct.jsx';
 export const backendURL = import.meta.env.VITE_BACKEND_URL;
 export const singleBackendURL = import.meta.env.VITE_SINGLE_BACKEND_URL;
 
