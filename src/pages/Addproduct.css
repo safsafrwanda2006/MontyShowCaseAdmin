@@ -9,6 +9,7 @@
     --text-main: #1e293b;
     --text-muted: #64748b;
 }
+
 .back-btn{
     background-color: var(--accent);
     width: 50px;
