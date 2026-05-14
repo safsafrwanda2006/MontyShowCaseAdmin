@@ -7,13 +7,13 @@ import axios from "axios";
 function admins({ setCurrentPage }) {
   const [admins, setAdmins] = useState([]);
   const [role, setRole] = useState("");
-  const [adding,setAdding]= useState(false);
-  const [form,setForm] = useState({
+  const [adding, setAdding] = useState(false);
+  const [form, setForm] = useState({
     admin_name: "",
     email: "",
     password: "",
-    admin_role: ""
-  })
+    admin_role: "",
+  });
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -43,19 +43,19 @@ function admins({ setCurrentPage }) {
     e.preventDefault();
     setAdding(true);
     try {
-      const result = await axios.post(`${backendURL}/admin/register`,form);
+      const result = await axios.post(`${backendURL}/admin/register`, form);
       console.log(result.data);
       fetchAdmins();
       setForm({
         admin_name: "",
         email: "",
         password: "",
-        admin_role: ""
+        admin_role: "",
       });
     } catch (error) {
-      console.log(error)
-    } finally{
-      setAdding(false)
+      console.log(error);
+    } finally {
+      setAdding(false);
     }
   };
 
@@ -85,10 +85,18 @@ function admins({ setCurrentPage }) {
             <div className="name">
               {admin.admin_name}
               {"  "}
-              {admin.admin_role==="full"?<span className="role">مشرف عام</span>:<span className="role">مشرف جزئي</span>}
+              {admin.admin_role === "full" ? (
+                <span className="role">مشرف عام</span>
+              ) : (
+                <span className="role">مشرف جزئي</span>
+              )}
             </div>
             <div className="email">{admin.email}</div>
-            <button onClick={() => deleteAdmin(admin.admin_id)}>حذف المشرف</button>
+            {role === "full" &&(
+                <button onClick={() => deleteAdmin(admin.admin_id)}>
+                  حذف المشرف
+                </button>
+              )}
           </li>
         ))}
       </ul>
@@ -155,17 +163,20 @@ function admins({ setCurrentPage }) {
               />
             </div>
             <div className="form-row">
-              <label htmlFor="role">Role</label>
-              <select 
-              onChange={(e)=>setForm({
-                ...form,
-                admin_role: e.target.value
-              })}
-              name="role" id="role">
-                <option value="">select role</option>
-                <option value="coadmin">Co-Admin</option>
-                <option value="full">Full Admin</option>
-                
+              <label htmlFor="role">دور المشرف</label>
+              <select
+                onChange={(e) =>
+                  setForm({
+                    ...form,
+                    admin_role: e.target.value,
+                  })
+                }
+                name="role"
+                id="role"
+              >
+                <option value="">اختر دور المشرف</option>
+                <option value="coadmin">مشرف مساعد</option>
+                <option value="full">مشرف كامل</option>
               </select>
             </div>
 
