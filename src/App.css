@@ -119,4 +119,7 @@ form{
   .title{
     flex:content;
   }
+  .logo{
+    display: none;
+  }
 }
