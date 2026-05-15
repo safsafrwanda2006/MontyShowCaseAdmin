@@ -5,10 +5,10 @@ import "./App.css";
 import Admins from "./pages/Admins.jsx";
 import Products from "./pages/Products.jsx";
 import AddProduct from './pages/Addproduct.jsx';
-export const backendURL = import.meta.env.VITE_BACKEND_URL;
+// export const backendURL = import.meta.env.VITE_BACKEND_URL;
 export const singleBackendURL = import.meta.env.VITE_SINGLE_BACKEND_URL;
 
-// export const backendURL = "http://localhost:5001/api"
+export const backendURL = "http://localhost:5001/api"
 function App() {
   const [currentPage, setCurrentPage] = useState("products");
   const [sidmenu, setSidmenu] = useState(false);
